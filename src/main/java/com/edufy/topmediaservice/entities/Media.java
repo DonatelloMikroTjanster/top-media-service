@@ -17,6 +17,9 @@ public class Media {
     @Column(name = "title", length = 100)
     private String title;
 
+    @Column(name = "genre", nullable = false, length = 100)
+    private String genre;
+
     @Column(name = "media_category", length = 100)
     private String mediaCategory;
 
@@ -58,5 +61,13 @@ public class Media {
 
     public void setMediaCategory(String mediaCategory) {
         this.mediaCategory = mediaCategory;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 }

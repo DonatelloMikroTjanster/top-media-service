@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "\"user\"")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -18,12 +19,26 @@ public class User {
     @Column(name = "user_name", length = 100)
     private String userName;
 
+    @Column(name = "email", nullable = false, length = 100)
+    private String email;
+
+    @Column(name = "created_at", nullable = false, length = 100)
+    private LocalDateTime createdAt;
+
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<TopMedia> topMedia = new HashSet<>();
 
     public User() {
 
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUserName() {
@@ -34,12 +49,20 @@ public class User {
         this.userName = userName;
     }
 
-    public Long getId() {
-        return id;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Set<TopMedia> getTopMedia() {

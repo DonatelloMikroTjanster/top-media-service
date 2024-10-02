@@ -4,6 +4,8 @@ package com.edufy.topmediaservice.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "top_media")
 public class TopMedia {
@@ -21,7 +23,8 @@ public class TopMedia {
     private Media media;
 
     @Column(name = "play_count", length = 100)
-    private Integer playCount;
+    private Long playCount;
+
 
     public TopMedia() {
     }
@@ -50,11 +53,11 @@ public class TopMedia {
         this.media = media;
     }
 
-    public Integer getPlayCount() {
+    public Long getPlayCount() {
         return playCount;
     }
 
-    public void setPlayCount(Integer playCount) {
+    public void setPlayCount(Long playCount) {
         this.playCount = playCount;
     }
 }

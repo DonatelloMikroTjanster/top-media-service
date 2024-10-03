@@ -19,10 +19,10 @@ public class User {
     @Column(name = "user_name", length = 100)
     private String userName;
 
-    @Column(name = "email", nullable = false, length = 100)
+    @Column(name = "email", length = 100)
     private String email;
 
-    @Column(name = "created_at", nullable = false, length = 100)
+    @Column(name = "created_at", length = 100)
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)

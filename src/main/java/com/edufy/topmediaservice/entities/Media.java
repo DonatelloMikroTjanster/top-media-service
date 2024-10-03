@@ -18,19 +18,19 @@ public class Media {
     @Column(name = "title", length = 100)
     private String title;
 
-    @Column(name = "media_type", nullable = false, length = 100)
+    @Column(name = "media_type",length = 100)
     private String mediaType;
 
-    @Column(name = "genre", nullable = false, length = 100)
+    @Column(name = "genre", length = 100)
     private String genre;
 
-    @Column(name = "release_date", nullable = false, length = 100)
+    @Column(name = "release_date",length = 100)
     private LocalDate releaseDate;
 
-    @Column(name = "url", nullable = false, length = 100)
+    @Column(name = "url", length = 100)
     private String url;
 
-    @Column(name = "duration", nullable = false, length = 100)
+    @Column(name = "duration", length = 100)
     private String duration;
 
     @OneToMany(mappedBy = "media", fetch = FetchType.EAGER, cascade = CascadeType.ALL)

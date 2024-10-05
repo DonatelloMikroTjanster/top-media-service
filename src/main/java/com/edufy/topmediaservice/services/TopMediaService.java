@@ -23,5 +23,8 @@ public class TopMediaService {
     }
 
 
+    public TopMedia addTopMedia(TopMedia topMedia) {
 
+        return topMediaRepository.save(topMedia);
+    }
 }

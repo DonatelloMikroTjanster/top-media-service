@@ -22,8 +22,13 @@ public class Media {
     @Column(name = "media_type",length = 100)
     private String mediaType;
 
-    @Column(name = "genre", length = 100)
-    private String genre;
+   /* @Column(name = "genre", length = 100)
+    private String genre; *
+    */
+
+    @ManyToOne
+    @JoinColumn(name = "genre_id")
+    private Genre genre;
 
     @Column(name = "release_date",length = 100)
     private LocalDate releaseDate;
@@ -66,13 +71,13 @@ public class Media {
         this.mediaType = mediaType;
     }
 
-    public String getGenre() {
+  /*  public String getGenre() {
         return genre;
     }
 
     public void setGenre(String genre) {
         this.genre = genre;
-    }
+    } */
 
     public LocalDate getReleaseDate() {
         return releaseDate;
@@ -104,5 +109,13 @@ public class Media {
 
     public void setTopMedia(Set<TopMedia> topMedia) {
         this.topMedia = topMedia;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 }
